@@ -1,8 +1,8 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react"
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import { useRef, useState } from "react";
-import Airdrop from "../icons/airdrop";
-import Loader from "../icons/Loader";
+import Airdrop from "@/icons/AirDrop";
+import Loader from "@/icons/Loader";
 import { toast } from "sonner";
 
 const RequestAirdrop = () => {
