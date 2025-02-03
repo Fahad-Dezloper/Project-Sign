@@ -1,41 +1,22 @@
 import './App.css'
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import {
-    WalletModalProvider,
-    WalletDisconnectButton,
-    WalletMultiButton
-} from '@solana/wallet-adapter-react-ui';
-
 import '@solana/wallet-adapter-react-ui/styles.css';
-import RequestAirdrop from './RequestAirdrop';
-import { ShowBalance } from './ShowBalance';
-import { SendToken } from './SendToken';
-import { SignMessage } from './SignMessage';
+import Interact from './components/Interact';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import Swap from './components/Swap';
 
 function App() {
 
   return (
-    <div className="flex flex-col items-center justify-center overflow-hidden text-white">
-    <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
-        <WalletProvider wallets={[]} autoConnect>
-            <WalletModalProvider>
-                <div className="w-full max-w-lg bg-gray-800 rounded-2xl shadow-lg p-6 space-y-6 text-center">
-                    <h1 className="text-2xl font-bold">Solana Wallet Interaction</h1>
-                    <div className="flex w-full items-center justify-center  gap-4">
-                        <WalletMultiButton className="w-full" />
-                        <WalletDisconnectButton className="w-full" />
-                    </div>
-                    <div className="space-y-4">
-                        <RequestAirdrop />
-                        <ShowBalance />
-                        <SendToken />
-                        <SignMessage />
-                    </div>
-                </div>
-            </WalletModalProvider>
-        </WalletProvider>
-    </ConnectionProvider>
-</div>
+    <>
+    <div className="w-full h-full rounded-3xl shadow-lg space-y-6 backdrop-blur-lg text-black relative overflow-hidden text-center z-[30]">
+    <img src="/space-background.avif" alt="" className='absolute w-full h-full object-cover blur-sm' />
+    <Routes>
+        <Route path="/" element={<Navigate to="/interact" />} />
+        <Route path='/interact' element={<Interact />} /> 
+        <Route path='/swap' element={<Swap />} />
+        </Routes>
+        </div>
+    </>
   )
 }
 

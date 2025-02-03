@@ -1,25 +1,35 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react"
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import Airdrop from "./icons/airdrop";
+import Loader from "./icons/Loader";
 
 export default function RequestAirdrop(){
     const wallet = useWallet();
+    const [loading, setLoading] = useState(false);
     const {connection} = useConnection();
     const amountRef = useRef(null);
     function requestAirdrop(){
-        const publicKey = wallet.publicKey;
-        const amount = amountRef.current.value;
-        connection.requestAirdrop(publicKey, amount * LAMPORTS_PER_SOL) //1 sol = 10^9
+        setLoading(true);
+        try{
+            const publicKey = wallet.publicKey;
+            const amount = amountRef.current.value;
+            connection.requestAirdrop(publicKey, amount * LAMPORTS_PER_SOL) //1 sol = 10^9
+            // toast.success("All wallets cleared.");
+        } catch(e){
+            console.log(e);
+        }finally{
+            setLoading(false)
+        }
     }
 
     return(
-        <div className="flex flex-col items-center gap-3">
-            <div className="flex items-center gap-2">
-            <input type="text" ref={amountRef} className="border rounded-md p-2" placeholder="Amount..." />
-            <button onClick={requestAirdrop}>Request Airdrop</button>
-            </div>
-            <div className="bg-gray-200/20 rounded-md p-2">
-                {wallet.publicKey?.toBase58()}
+        <div className="flex items-center justify-center gap-3 z-[30]">
+            <div className="flex items-center  gap-2 relative">
+            <input type="text" ref={amountRef} className="border w-[18vw] primary-heavy rounded-2xl bg-white px-5 py-3" placeholder="Airdrop Amount" />
+            <button onClick={requestAirdrop} className={`absolute right-0 p-2 bg-black ${loading ? "animate-spin" : ""} scale-75 text-white rounded-full cursor-pointer`}>
+                {loading ? <Loader /> : <Airdrop /> }
+            </button>
             </div>
         </div>
     )

@@ -11,6 +11,7 @@ export function ShowBalance(){
         const balance = await connection.getBalance(wallet.publicKey);
         setBalance(balance / LAMPORTS_PER_SOL);
     }
+    
     useEffect(() => {
         getUserBalance();
     }, [wallet]);
