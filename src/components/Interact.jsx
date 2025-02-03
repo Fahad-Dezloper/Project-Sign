@@ -1,18 +1,13 @@
 import { ConnectionProvider, WalletProvider } from "@solana/wallet-adapter-react"
-import { WalletDisconnectButton, WalletModalProvider, WalletMultiButton } from "@solana/wallet-adapter-react-ui"
-import RequestAirdrop from "../RequestAirdrop"
-import { ShowBalance } from "../ShowBalance"
-import { SendToken } from "../SendToken"
-import { SignMessage } from "../SignMessage"
-import Example from "./TiltCard"
-import Show from "./TiltCard"
-import WalletButtons from "./WalletButtons"
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui"
+import { SendToken } from "../shared/SendToken"
+import { SignMessage } from "../shared/SignMessage"
+import RequestAirdrop from "../shared/RequestAirdrop"
+import Show from "../shared/TiltCard"
+import WalletButtons from "../shared/WalletButtons"
 
 const Interact = () => {
     return (
-            <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
-                <WalletProvider wallets={[]} autoConnect>
-                    <WalletModalProvider>
             <div className='flex flex-col gap-4 md:flex-row w-full h-full py-6 md:px-12 z-[30]'>
                 <div className="w-full h-full"><Show /></div>
                 <div className="w-full h-fit flex flex-col items-center gap-6 z-[30]">
@@ -27,9 +22,6 @@ const Interact = () => {
                             </div> */}
                     </div>
             </div>
-                            </WalletModalProvider>
-                        </WalletProvider>
-                    </ConnectionProvider>
     )
 }
 
