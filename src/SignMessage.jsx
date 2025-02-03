@@ -22,9 +22,11 @@ export function SignMessage(){
 
     return(
         <div className="flex flex-col gap-3">
-            <div className="font-semibold bg-gray-100/50 text-black p-2 border-t-2">Sign Message</div>
-            <input type="text" className="py-2 rounded-lg border px-4" ref={messageRef} placeholder="Message" />
-            <button onClick={onClick}>Sign Message</button>
+            <div className="font-semibold bg-gradient-to-br from-blue-400 to-purple-500 text-white p-2">Sign Message</div>
+            <div className="flex gap-2">
+            <input type="text" className="rounded-2xl primary-heavy w-full border bg-white px-5 py-3" ref={messageRef} placeholder="Message" />
+            <button onClick={onClick} className="px-12 py-3 bg-[#3B82F6] w-full hover:bg-[#60A5FA] duration-200 ease-in-out text-white font-semibold primary-heavy rounded-2xl">Sign Message</button>
+            </div>
         </div>
     )
 }

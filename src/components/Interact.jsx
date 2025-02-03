@@ -13,18 +13,17 @@ const Interact = () => {
             <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
                 <WalletProvider wallets={[]} autoConnect>
                     <WalletModalProvider>
-            <div className='flex w-full h-full py-6 px-12 z-[30]'>
-                <Show />
-                <div className="w-full h-fit flex flex-col gap-8">
-                        <h1 className="text-[3vw] z-[30] primary-heavy text-white">Interact</h1>
+            <div className='flex flex-col gap-4 md:flex-row w-full h-full py-6 md:px-12 z-[30]'>
+                <div className="w-full h-full"><Show /></div>
+                <div className="w-full h-fit flex flex-col items-center gap-6 z-[30]">
+                        <h1 className="text-[3vw] z-[30] primary-heavy text-white hidden md:flex">Interact</h1>
                             <WalletButtons />
                             <RequestAirdrop />
+                            <SendToken />
+                            <SignMessage />
+                            {/* <ShowBalance /> */}
                             {/* <Example /> */}
                             {/* <div className="space-y-4">
-                                <RequestAirdrop />
-                                <ShowBalance />
-                                <SendToken />
-                                <SignMessage />
                             </div> */}
                     </div>
             </div>

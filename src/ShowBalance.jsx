@@ -18,7 +18,7 @@ export function ShowBalance(){
 
 
     return (
-        <div className="w-full flex items-center justify-center">
+        <div className="w-full flex items-center justify-center bg-white">
         <div className="p-2 border rounded-xl hover:bg-gray-600 duration-150 ease-in-out"><span className="font-semibold">Balance:</span> <span id="balance">{balancee}</span> SOL</div>
         </div>
     )

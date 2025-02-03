@@ -8,8 +8,8 @@ function App() {
 
   return (
     <>
-    <div className="w-full h-full rounded-3xl shadow-lg space-y-6 backdrop-blur-lg text-black relative overflow-hidden text-center z-[30]">
-    <img src="/space-background.avif" alt="" className='absolute w-full h-full object-cover blur-sm' />
+    <div className="w-full h-full md:rounded-3xl px-5 shadow-lg space-y-6 backdrop-blur-lg text-black relative overflow-hidden text-center z-[30]">
+    <img src="/space-background.avif" alt="" className='absolute hidden md:flex w-full h-full object-cover blur-sm' />
     <Routes>
         <Route path="/" element={<Navigate to="/interact" />} />
         <Route path='/interact' element={<Interact />} /> 

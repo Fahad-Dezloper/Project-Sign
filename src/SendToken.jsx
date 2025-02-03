@@ -23,11 +23,13 @@ export function SendToken(){
     }
 
     return(
-        <div className="flex flex-col gap-3 mt-8">
-            <div className="font-semibold bg-gray-100/50 text-black p-2 border-t-2">Transfer Sol</div>
-            <input type="text" ref={toRef} className="py-2 rounded-lg border px-4" id="to" placeholder="To" />
-            <input type="text" ref={amountRef} className="py-2 rounded-lg border px-4" id="amount" placeholder="Amount" />
-            <button onClick={sendToken}>Send</button>
+        <div className="flex flex-col gap-3 md:mt-8 z-[30] min-w-[30vw] ">
+            <div className="font-semibold bg-gradient-to-br from-blue-400 to-purple-500 text-white text-center p-2 w-full">Transfer Sol</div>
+            <input type="text" ref={toRef} className="rounded-2xl primary-heavy w-full border bg-white px-5 py-3" id="to" placeholder="To" />
+            <div className="flex gap-2">
+            <input type="text" ref={amountRef} className="rounded-2xl primary-heavy bg-white px-5 py-3" id="amount" placeholder="Amount" />
+            <button onClick={sendToken} className="px-12 py-3 bg-[#3B82F6] w-full hover:bg-[#60A5FA] duration-200 ease-in-out text-white font-semibold primary-heavy rounded-2xl">Send</button>
+            </div>
         </div>
     )
 }
