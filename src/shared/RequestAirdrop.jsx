@@ -13,7 +13,8 @@ const RequestAirdrop = () => {
         try{
             const publicKey = wallet.publicKey;
             const amount = amountRef.current.value;
-            connection.requestAirdrop(publicKey, amount * LAMPORTS_PER_SOL) //1 sol = 10^9
+            //1 sol = 10^9
+            connection.requestAirdrop(publicKey, amount * LAMPORTS_PER_SOL) 
             toast.success("🎁 AirDrop Successfully");
         } catch(e){
             console.log(e);
