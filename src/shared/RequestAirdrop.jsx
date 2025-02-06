@@ -17,7 +17,7 @@ const RequestAirdrop = () => {
             connection.requestAirdrop(publicKey, amount * LAMPORTS_PER_SOL) 
             toast.success("🎁 AirDrop Successfully");
         } catch(e){
-            console.log(e);
+            console.log("Error while Airdroping sol", e);
         }finally{
             setLoading(false)
         }
